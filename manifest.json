@@ -35,6 +35,9 @@
     ],
     "memcached": [
       { "version": "1.6.8", "url": "https://github.com/jefyt/memcached-windows/releases/download/1.6.8_mingw_libressl/memcached-1.6.8-win64-mingw.zip", "sha256": "48ec62cef718f0d73698414b783c0e4a69821013553ca00afe0eed324eb5994b" }
+    ],
+    "mailpit": [
+      { "version": "1.30.4", "url": "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-windows-amd64.zip", "sha256": "151378799345709c00e287a1b00bfee6f7ce5f5e8d0c00cc4133e3bbf2eaabdb" }
     ]
   }
 }
