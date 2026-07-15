@@ -22,19 +22,19 @@
     "mariadb": [
       { "version": "11.4.2", "url": "https://archive.mariadb.org/mariadb-11.4.2/winx64-packages/mariadb-11.4.2-winx64.zip", "sha256": "27dac2ce34b12b812b2b672cb12c23ccbb4139d410c5b557e5f0958f0a693488" },
       { "version": "11.2.4", "url": "https://archive.mariadb.org/mariadb-11.2.4/winx64-packages/mariadb-11.2.4-winx64.zip", "sha256": "c75d822696d397d98ea9893cf8757a7da08931cc08125127f740a89a2fc643ad" },
-      { "version": "10.11.8", "url": "https://archive.mariadb.org/mariadb-10.11.8/winx64-packages/mariadb-10.11.8-winx64.zip", "sha256": null },
-      { "version": "10.6.18", "url": "https://archive.mariadb.org/mariadb-10.6.18/winx64-packages/mariadb-10.6.18-winx64.zip", "sha256": null }
+      { "version": "10.11.8", "url": "https://archive.mariadb.org/mariadb-10.11.8/winx64-packages/mariadb-10.11.8-winx64.zip", "sha256": "314b72a86ffd81ffe767a74556db1003ce46a943423daacafd759577ef7cb515" },
+      { "version": "10.6.18", "url": "https://archive.mariadb.org/mariadb-10.6.18/winx64-packages/mariadb-10.6.18-winx64.zip", "sha256": "c901aa2ef2ade14b87884c77ac14b78abecfed6e09ec20692cdf5fc04817900f" }
     ],
     "postgresql": [
-      { "version": "16.2", "url": "https://get.enterprisedb.com/postgresql/postgresql-16.2-1-windows-x64-binaries.zip", "sha256": null },
-      { "version": "15.6", "url": "https://get.enterprisedb.com/postgresql/postgresql-15.6-1-windows-x64-binaries.zip", "sha256": null },
-      { "version": "14.11", "url": "https://get.enterprisedb.com/postgresql/postgresql-14.11-1-windows-x64-binaries.zip", "sha256": null }
+      { "version": "16.2", "url": "https://get.enterprisedb.com/postgresql/postgresql-16.2-1-windows-x64-binaries.zip", "sha256": "c510b3058c161479bfbe0aeac878ca682b344fd9385c58a359690147a4ca1a6c" },
+      { "version": "15.6", "url": "https://get.enterprisedb.com/postgresql/postgresql-15.6-1-windows-x64-binaries.zip", "sha256": "64e4cd8ba50aa75c4e6573665f97ce6c215e71d840d88896f82dd89bbc334b6d" },
+      { "version": "14.11", "url": "https://get.enterprisedb.com/postgresql/postgresql-14.11-1-windows-x64-binaries.zip", "sha256": "338b98be771e886b0a7b9754d3768e900b3344602753ad00250a5ec302cfe912" }
     ],
     "redis": [
-      { "version": "5.0.14.1", "url": "https://github.com/tporadowski/redis/releases/download/v5.0.14.1/Redis-x64-5.0.14.1.zip", "sha256": null }
+      { "version": "5.0.14.1", "url": "https://github.com/tporadowski/redis/releases/download/v5.0.14.1/Redis-x64-5.0.14.1.zip", "sha256": "018ea18a35876383cbb5f4cd0258adfc87747cf9d619bce1cf73a2e36f720ccf" }
     ],
     "memcached": [
-      { "version": "1.6.8", "url": "https://github.com/jefyt/memcached-windows/releases/download/1.6.8_mingw_libressl/memcached-1.6.8-win64-mingw.zip", "sha256": null }
+      { "version": "1.6.8", "url": "https://github.com/jefyt/memcached-windows/releases/download/1.6.8_mingw_libressl/memcached-1.6.8-win64-mingw.zip", "sha256": "48ec62cef718f0d73698414b783c0e4a69821013553ca00afe0eed324eb5994b" }
     ]
   }
 }
