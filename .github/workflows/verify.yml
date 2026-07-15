@@ -51,19 +51,27 @@ jobs:
           set -u
           fail=0
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Stackr-manifest-CI"
+          # Full results go to the job summary (NOT annotations — GitHub caps
+          # those at 10 per step, which truncated a >10-entry manifest).
+          echo "| component | version | sha256 | state |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
           jq -r '.components | to_entries[] | .key as $c | .value[] | [$c, .version, .url, (.sha256 // "null")] | @tsv' manifest.json \
           | while IFS=$'\t' read -r comp version url want; do
               if ! curl -A "$UA" -fsSL "$url" -o pkg.bin; then
-                echo "::error::download failed $comp $version $url"; echo fail >> /tmp/status; continue
+                echo "::error::download failed $comp $version $url"; echo fail >> /tmp/status
+                echo "| $comp | $version | — | ❌ download failed |" >> "$GITHUB_STEP_SUMMARY"; continue
               fi
               got=$(sha256sum pkg.bin | cut -d' ' -f1)
               rm -f pkg.bin
               if [ "$want" = "null" ]; then
                 echo "::notice::SUGGEST $comp $version -> $got"
+                echo "| $comp | $version | \`$got\` | 🔹 suggested (fill this in) |" >> "$GITHUB_STEP_SUMMARY"
               elif [ "$want" != "$got" ]; then
                 echo "::error::MISMATCH $comp $version want=$want got=$got"; echo fail >> /tmp/status
+                echo "| $comp | $version | \`$got\` | ❌ MISMATCH (declared \`$want\`) |" >> "$GITHUB_STEP_SUMMARY"
               else
                 echo "ok $comp $version"
+                echo "| $comp | $version | \`$got\` | ✅ verified |" >> "$GITHUB_STEP_SUMMARY"
               fi
             done
           # `while` runs in a pipe subshell, so signal failure via a marker file.
