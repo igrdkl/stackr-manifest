@@ -4,24 +4,24 @@
   "note": "Stackr component catalog. The desktop app fetches this to list installable versions and verify downloads. sha256 = null means 'not yet computed' (client skips verification for that entry); run the 'checksums' workflow to fill them in. Newest version first per component.",
   "components": {
     "nginx": [
-      { "version": "1.27.3", "url": "https://nginx.org/download/nginx-1.27.3.zip", "sha256": null },
-      { "version": "1.26.2", "url": "https://nginx.org/download/nginx-1.26.2.zip", "sha256": null },
-      { "version": "1.24.0", "url": "https://nginx.org/download/nginx-1.24.0.zip", "sha256": null }
+      { "version": "1.27.3", "url": "https://nginx.org/download/nginx-1.27.3.zip", "sha256": "c8d851ab2673b986fe82b9bb2e681ef0cc675a25d69381aa00b63a1663510d6e" },
+      { "version": "1.26.2", "url": "https://nginx.org/download/nginx-1.26.2.zip", "sha256": "942638cc31c836fe429fde22e4c46e497f89d3c2bbce46cd2c8800854fd71409" },
+      { "version": "1.24.0", "url": "https://nginx.org/download/nginx-1.24.0.zip", "sha256": "69a36bfd2a61d7a736fafd392708bd0fb6cf15d741f8028fe6d8bb5ebd670eb9" }
     ],
     "apache": [
-      { "version": "2.4.68", "url": "https://www.apachelounge.com/download/VS18/binaries/httpd-2.4.68-260617-Win64-VS18.zip", "sha256": null }
+      { "version": "2.4.68", "url": "https://www.apachelounge.com/download/VS18/binaries/httpd-2.4.68-260617-Win64-VS18.zip", "sha256": "eac38a9f8d21b6ba0817cd1576a3d291cc771afd3c6a210d120bdea6f4aa4aeb" }
     ],
     "php": [
-      { "version": "8.3.4", "url": "https://windows.php.net/downloads/releases/archives/php-8.3.4-Win32-vs16-x64.zip", "sha256": null },
-      { "version": "8.2.12", "url": "https://windows.php.net/downloads/releases/archives/php-8.2.12-Win32-vs16-x64.zip", "sha256": null }
+      { "version": "8.3.4", "url": "https://windows.php.net/downloads/releases/archives/php-8.3.4-Win32-vs16-x64.zip", "sha256": "4844fb571c4b50fedc60b5284987c939ebb6472829d5a8c3e34e9b1bbdb86145" },
+      { "version": "8.2.12", "url": "https://windows.php.net/downloads/releases/archives/php-8.2.12-Win32-vs16-x64.zip", "sha256": "db26ec72d352e7fe7f9b542a1e70d868eec18332093bca21eb74c2824b3d418f" }
     ],
     "mysql": [
-      { "version": "8.4.0", "url": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0-winx64.zip", "sha256": null },
-      { "version": "8.0.36", "url": "https://cdn.mysql.com/archives/mysql-8.0/mysql-8.0.36-winx64.zip", "sha256": null }
+      { "version": "8.4.0", "url": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0-winx64.zip", "sha256": "fb1f0c6cce229be4b3208bec8a605576bb47eabb00512bccbcc4396af332c25c" },
+      { "version": "8.0.36", "url": "https://cdn.mysql.com/archives/mysql-8.0/mysql-8.0.36-winx64.zip", "sha256": "a1bc2ad567eef672be20b591ad25b14f221e60bde3ae3eb235128d91e4166557" }
     ],
     "mariadb": [
-      { "version": "11.4.2", "url": "https://archive.mariadb.org/mariadb-11.4.2/winx64-packages/mariadb-11.4.2-winx64.zip", "sha256": null },
-      { "version": "11.2.4", "url": "https://archive.mariadb.org/mariadb-11.2.4/winx64-packages/mariadb-11.2.4-winx64.zip", "sha256": null },
+      { "version": "11.4.2", "url": "https://archive.mariadb.org/mariadb-11.4.2/winx64-packages/mariadb-11.4.2-winx64.zip", "sha256": "27dac2ce34b12b812b2b672cb12c23ccbb4139d410c5b557e5f0958f0a693488" },
+      { "version": "11.2.4", "url": "https://archive.mariadb.org/mariadb-11.2.4/winx64-packages/mariadb-11.2.4-winx64.zip", "sha256": "c75d822696d397d98ea9893cf8757a7da08931cc08125127f740a89a2fc643ad" },
       { "version": "10.11.8", "url": "https://archive.mariadb.org/mariadb-10.11.8/winx64-packages/mariadb-10.11.8-winx64.zip", "sha256": null },
       { "version": "10.6.18", "url": "https://archive.mariadb.org/mariadb-10.6.18/winx64-packages/mariadb-10.6.18-winx64.zip", "sha256": null }
     ],
