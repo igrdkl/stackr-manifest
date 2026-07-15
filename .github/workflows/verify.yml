@@ -1,0 +1,70 @@
+name: verify-manifest
+
+# Keeps the catalog honest: every push validates the JSON and that each URL is
+# reachable; a nightly (and on-demand) run downloads each archive to verify the
+# declared SHA-256 — and prints a suggested digest for entries still set to null.
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON
+        run: jq empty manifest.json
+      - name: URLs reachable
+        run: |
+          set -u
+          fail=0
+          # A browser UA — some hosts (Apache Lounge) refuse non-browser agents.
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Stackr-manifest-CI"
+          while read -r url; do
+            code=$(curl -A "$UA" -sIL -o /dev/null -w '%{http_code}' "$url" || echo 000)
+            # Some hosts reject HEAD — retry with a 1-byte ranged GET.
+            if [ "$code" -ge 400 ] || [ "$code" = 000 ]; then
+              code=$(curl -A "$UA" -sL -r 0-0 -o /dev/null -w '%{http_code}' "$url" || echo 000)
+            fi
+            if [ "$code" -ge 400 ] || [ "$code" = 000 ]; then
+              echo "::error::DEAD ($code) $url"; fail=1
+            else
+              echo "ok ($code) $url"
+            fi
+          done < <(jq -r '.components[][].url' manifest.json)
+          exit $fail
+
+  checksums:
+    # Heavy (downloads every archive) — only nightly or when triggered manually.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify declared SHA-256 (and suggest missing ones)
+        run: |
+          set -u
+          fail=0
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Stackr-manifest-CI"
+          jq -r '.components | to_entries[] | .key as $c | .value[] | [$c, .version, .url, (.sha256 // "null")] | @tsv' manifest.json \
+          | while IFS=$'\t' read -r comp version url want; do
+              if ! curl -A "$UA" -fsSL "$url" -o pkg.bin; then
+                echo "::error::download failed $comp $version $url"; echo fail >> /tmp/status; continue
+              fi
+              got=$(sha256sum pkg.bin | cut -d' ' -f1)
+              rm -f pkg.bin
+              if [ "$want" = "null" ]; then
+                echo "::notice::SUGGEST $comp $version -> $got"
+              elif [ "$want" != "$got" ]; then
+                echo "::error::MISMATCH $comp $version want=$want got=$got"; echo fail >> /tmp/status
+              else
+                echo "ok $comp $version"
+              fi
+            done
+          # `while` runs in a pipe subshell, so signal failure via a marker file.
+          if [ -f /tmp/status ]; then exit 1; fi

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "updated": "2026-07-15",
+  "note": "Stackr component catalog. The desktop app fetches this to list installable versions and verify downloads. sha256 = null means 'not yet computed' (client skips verification for that entry); run the 'checksums' workflow to fill them in. Newest version first per component.",
+  "components": {
+    "nginx": [
+      { "version": "1.27.3", "url": "https://nginx.org/download/nginx-1.27.3.zip", "sha256": null },
+      { "version": "1.26.2", "url": "https://nginx.org/download/nginx-1.26.2.zip", "sha256": null },
+      { "version": "1.24.0", "url": "https://nginx.org/download/nginx-1.24.0.zip", "sha256": null }
+    ],
+    "apache": [
+      { "version": "2.4.68", "url": "https://www.apachelounge.com/download/VS18/binaries/httpd-2.4.68-260617-Win64-VS18.zip", "sha256": null }
+    ],
+    "php": [
+      { "version": "8.3.4", "url": "https://windows.php.net/downloads/releases/archives/php-8.3.4-Win32-vs16-x64.zip", "sha256": null },
+      { "version": "8.2.12", "url": "https://windows.php.net/downloads/releases/archives/php-8.2.12-Win32-vs16-x64.zip", "sha256": null }
+    ],
+    "mysql": [
+      { "version": "8.4.0", "url": "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.0-winx64.zip", "sha256": null },
+      { "version": "8.0.36", "url": "https://cdn.mysql.com/archives/mysql-8.0/mysql-8.0.36-winx64.zip", "sha256": null }
+    ],
+    "mariadb": [
+      { "version": "11.4.2", "url": "https://archive.mariadb.org/mariadb-11.4.2/winx64-packages/mariadb-11.4.2-winx64.zip", "sha256": null },
+      { "version": "11.2.4", "url": "https://archive.mariadb.org/mariadb-11.2.4/winx64-packages/mariadb-11.2.4-winx64.zip", "sha256": null },
+      { "version": "10.11.8", "url": "https://archive.mariadb.org/mariadb-10.11.8/winx64-packages/mariadb-10.11.8-winx64.zip", "sha256": null },
+      { "version": "10.6.18", "url": "https://archive.mariadb.org/mariadb-10.6.18/winx64-packages/mariadb-10.6.18-winx64.zip", "sha256": null }
+    ],
+    "postgresql": [
+      { "version": "16.2", "url": "https://get.enterprisedb.com/postgresql/postgresql-16.2-1-windows-x64-binaries.zip", "sha256": null },
+      { "version": "15.6", "url": "https://get.enterprisedb.com/postgresql/postgresql-15.6-1-windows-x64-binaries.zip", "sha256": null },
+      { "version": "14.11", "url": "https://get.enterprisedb.com/postgresql/postgresql-14.11-1-windows-x64-binaries.zip", "sha256": null }
+    ],
+    "redis": [
+      { "version": "5.0.14.1", "url": "https://github.com/tporadowski/redis/releases/download/v5.0.14.1/Redis-x64-5.0.14.1.zip", "sha256": null }
+    ],
+    "memcached": [
+      { "version": "1.6.8", "url": "https://github.com/jefyt/memcached-windows/releases/download/1.6.8_mingw_libressl/memcached-1.6.8-win64-mingw.zip", "sha256": null }
+    ]
+  }
+}
